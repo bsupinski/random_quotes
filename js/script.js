@@ -19,6 +19,7 @@ const quote_box = document.querySelector(".quote-box");
 quotes = [
   {
     quote: `You should try not to talk so much, friend. You’ll sound far less stupid that way.`,
+    author: "Brandon Sanderson",
     citation: "Mistborn: The Final Empire",
     character: "Edgard Ladrian",
     date: "July 17, 2006",
@@ -58,7 +59,7 @@ quotes = [
  * `getRandomQuote` function
  ***/
 const getRandomQuote = () => {
-  return Math.floor(Math.random() * quotes.length);
+  return quotes[Math.floor(Math.random() * quotes.length)];
 };
 
 const getRandomColor = () => {
@@ -69,7 +70,7 @@ const getRandomColor = () => {
  * `printQuote` function
  ***/
 const printQuote = () => {
-  quote = quotes[getRandomQuote()];
+  quote = getRandomQuote();
   quote_container = `<p class="quote">${quote.quote}</p>`;
   source_container = `<p class="source">${quote.author}`;
   if (quote.character)
